@@ -1,6 +1,6 @@
 echo "Checking if any file uses native Promise without requiring bluebird..."
 FAIL=
-for f in $(grep -R '[^a-zA-Z]Promise' ./{lib,spec/unit} | awk '{print $1}' | sed -e 's/\:.*//' | uniq)
+for f in $(grep -R '[^a-zA-Z]Promise' ./*.js | awk '{print $1}' | sed -e 's/\:.*//' | uniq)
 do
   if ! grep -iq 'bluebird' "$f"
   then
